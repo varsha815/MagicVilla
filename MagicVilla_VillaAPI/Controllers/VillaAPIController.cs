@@ -153,7 +153,8 @@ namespace MagicVilla_VillaAPI.Controllers
                 return BadRequest();
             }
             var villa = _db.Villas.AsNoTracking().FirstOrDefault(u => u.Id == id);
-
+            // villa.Name = "new name";
+            //_db.SaveChanges();
             
             VillaDTO villaDTO = new()
             {
@@ -175,12 +176,12 @@ namespace MagicVilla_VillaAPI.Controllers
             {
                 Amenity = villaDTO.Amenity,
                 Details = villaDTO.Details,
-                Id = villa.Id,
-                ImageUrl = villa.ImageUrl,
-                Name = villa.Name,
-                Occupancy= villa.Occupancy,
-                Rate = villa.Rate,
-                Sqft = villa.Sqft,
+                Id = villaDTO.Id,
+                ImageUrl = villaDTO.ImageUrl,
+                Name = villaDTO.Name,
+                Occupancy= villaDTO.Occupancy,
+                Rate = villaDTO.Rate,
+                Sqft = villaDTO.Sqft,
             };
             _db.Villas.Update(model);
             _db.SaveChanges();
