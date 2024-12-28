@@ -35,7 +35,7 @@ namespace MagicVilla_VillaAPI.Controllers
             //_logger.Log("Getting all villas","");
             //return Ok(await _db.Villas.ToListAsync());
             IEnumerable<Villa> villaList = await _db.Villas.ToListAsync();
-            return Ok(_mapper.Map<List<VillaDTO>>(villaList));
+            return Ok(_mapper.Map<List<VillaDTO>> (villaList));
         }
 
         [HttpGet("{id:int}", Name = "GetVilla")]
